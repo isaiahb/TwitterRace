@@ -1,0 +1,17 @@
+steps:
+  - name: node:14.15.0
+    entrypoint: npm
+    args: ["install"]
+  - name: node:14.15.0
+    dir: backend/
+    entrypoint: npm
+    args: ["run", "create-env"]
+    env:
+      - "TWITTER_API_KEY=${_TWITTER_API_KEY}"
+      - "TWITTER_API_KEY_SECRET=${_TWITTER_API_KEY_SECRET}"
+      - "TWITTER_ACCESS_TOKEN=${_TWITTER_ACCESS_TOKEN}"
+      - "TWITTER_ACCESS_TOKEN_SECRET=${_TWITTER_ACCESS_TOKEN_SECRET}"
+  - name: "gcr.io/cloud-builders/gcloud"
+    dir: backend/
+    args: ["app", "deploy", "app.yaml"]
+timeout: "1600s"
