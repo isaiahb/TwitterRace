@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import { useParams } from "react-router-dom";
 import { Button } from "../components/Button";
 import isaiah from "../images/isaiah.jpeg";
+import api from "../services/api.service";
 
 function randomMessage(options: string[]) {
   return options[Math.floor(Math.random() * options.length)];
@@ -25,26 +26,37 @@ export default function RacePage() {
   const [person1, setPerson1] = useState("");
   const [person2, setPerson2] = useState("");
 
+  const [person1Pic, setPerson1Pic] = useState("");
+  const [person2Pic, setPerson2Pic] = useState("");
+
   const [funMessage, setFunMessage] = useState("");
 
   useEffect(() => {
     console.log(race);
+
+    async function fetchTwitterData(p1: string, p2: string) {
+      const {person1Stats, person2Stats} = await api.twitter.getStats(p1, p2);
+      setPerson1Followers(person1Stats.followers);
+      setPerson2Followers(person2Stats.followers);
+
+      setPerson1Pic(person1Stats.profilePic);
+      setPerson2Pic(person2Stats.profilePic);
+      setLoading(false);
+    }
+
     if (!race) {
       setErrorMessage("Must specify the race!");
       setValid(false);
     } else {
       setValid(true);
       // TODO: load twitter users and their stats.
+      setLoading(true)
 
       setPerson1(race.split("-vs")[0]);
       setPerson2(race.split("-")[2]);
       setGoal(parseInt(race.split("-")[4]));
-
-      // setPerson1Followers(Math.min(69, goal));
-      // setPerson2Followers(Math.min(4200, goal));
-      setPerson1Followers(69);
-      setPerson2Followers(4200);
-      setLoading(false);
+      fetchTwitterData(race.split("-vs")[0], race.split("-")[2]);
+    
     }
   }, [race, goal]);
 
@@ -132,13 +144,13 @@ export default function RacePage() {
             totalGoal={goal}
             currentValue={person1Followers}
             name={person1}
-            profilePic={"joemama"}
+            profilePic={person1Pic}
           />
           <ProgressBar
             totalGoal={goal}
             currentValue={person2Followers}
             name={person2}
-            profilePic={"joemama"}
+            profilePic={person2Pic}
           />
         </div>
 
@@ -172,10 +184,10 @@ function ProgressBar({
   profilePic: string;
 }) {
   const percent = Math.min(currentValue, totalGoal) / totalGoal;
-  console.log(profilePic);
+
   return (
     <div className="flex flex-row w-full mt-10">
-      <img className="rounded-full w-16 h-16 bg-slate-500 mr-3 mt-2" src={isaiah} />
+      <img className="rounded-full w-16 h-16 bg-slate-500 mr-3 mt-2" src={profilePic} />
       
       <div className={"mb-2 flex flex-col flex-1"}>
         <p className="text-xl text-slate-600 mb-2"> 

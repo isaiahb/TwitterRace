@@ -14,8 +14,8 @@ async function getStats(p1: string, p2: string) {
 
 async function getRaceInfo(req: Request, res: Response) {
   try {
-    const {p1, p2, g} = req.query;
-    if (!p1 || !p2 || !g) {
+    const {p1, p2} = req.query;
+    if (!p1 || !p2) {
       console.log("Must specify person1, person2, and goal (p1, p2, g) query params");
     }
     const stats = await getStats(p1 as string, p2 as string);
@@ -25,6 +25,4 @@ async function getRaceInfo(req: Request, res: Response) {
     res.status(500).send(error);
   }
 }
-
 router.get("/twitter/race", getRaceInfo);
-
