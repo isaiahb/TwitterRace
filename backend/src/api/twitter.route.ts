@@ -18,11 +18,8 @@ async function getRaceInfo(req: Request, res: Response) {
     if (!p1 || !p2 || !g) {
       console.log("Must specify person1, person2, and goal (p1, p2, g) query params");
     }
-    
-    res.status(200).json({
-      person1Followers: 100,
-      person2Followers: 200,
-    });
+    const stats = await getStats(p1 as string, p2 as string);
+    res.status(200).json({stats});
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
