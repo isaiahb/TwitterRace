@@ -11,9 +11,12 @@ function randomMessage(options: string[]) {
 
 export default function RacePage() {
   const { race } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [valid, setValid] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [, setLoading] = useState(true);
+  const [, setValid] = useState(true);
+  const [, setErrorMessage] = useState("");
+  // const [loading, setLoading] = useState(true);
+  // const [valid, setValid] = useState(true);
+  // const [errorMessage, setErrorMessage] = useState("");
 
   const [goal, setGoal] = useState(0);
   const [person1Followers, setPerson1Followers] = useState(0);
@@ -60,7 +63,7 @@ export default function RacePage() {
     const distance = Math.abs(goal - highestUserCount);
     const distancePercent = (goal - distance) / goal;
     const closeToHalf = distancePercent > 0.47 && distancePercent < 0.53;
-    const soClose = distancePercent > 0.95;
+    // const soClose = distancePercent > 0.95;
     const tiedUp = percentDifference < 0.05;
     const oneWinner = highestUserCount >= goal;
     const everyonesAWinner =
@@ -169,7 +172,7 @@ function ProgressBar({
   profilePic: string;
 }) {
   const percent = Math.min(currentValue, totalGoal) / totalGoal;
-
+  console.log(profilePic);
   return (
     <div className="flex flex-row w-full mt-10">
       <img className="rounded-full w-16 h-16 bg-slate-500 mr-3 mt-2" src={isaiah} />
