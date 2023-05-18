@@ -207,7 +207,11 @@ export default function RacePage() {
           {funMessage}
         </h3>
 
-        <Button color="blue" className="mt-5" href={`/`}>
+        <Button
+          color="blue"
+          className="mt-5"
+          href={`https://twitter.com/intent/tweet?text=Check out this TwitterRace! ${window.location.href}`}
+        >
           Share on Twitter
         </Button>
 
