@@ -19,6 +19,10 @@ export default function NewPage() {
     }
   }, [person1, person2, goal]);
 
+  const firstPerson = Math.random() < 0.5 ? "IsaiahBallah" : "JakeBildy";
+  const secondPerson =
+    firstPerson === "IsaiahBallah" ? "JakeBildy" : "IsaiahBallah";
+
   return (
     <div className="flex flex-col h-screen bg-slate-100">
       <Header />
@@ -44,11 +48,11 @@ export default function NewPage() {
         <p className="text-gray-600 mt-3 font-semibold">
           Built by{" "}
           <span className="text-blue-400">
-            <a href="https://twitter.com/IsaiahBallah">@IsaiahBallah</a>
+            <a href={`https://twitter.com/${firstPerson}`}>@{firstPerson}</a>
           </span>
           {" & "}
           <span className="text-blue-400">
-            <a href="https://twitter.com/JakeBildy">@JakeBildy</a>
+            <a href={`https://twitter.com/${secondPerson}`}>@{secondPerson}</a>
           </span>
           . Inspired by{" "}
           <span className="text-blue-400">
