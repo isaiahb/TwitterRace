@@ -3,6 +3,7 @@ import { Button } from "../components/Button";
 import { TextField } from "../components/Fields";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import icon from "../../src/images/birds.png";
 
 export default function NewPage() {
   const [person1, setPerson1] = useState("");
@@ -22,15 +23,37 @@ export default function NewPage() {
     <div className="flex flex-col h-screen bg-slate-100">
       <Header />
       <div className="flex flex-col items-center flex-1">
-        <h1 className="text-4xl font-bold text-gray-800 mt-10">
-          Challenge Someone to a{" "}
-          <span className="text-blue-400">TwitterRace</span> 🚀
-        </h1>
+        <div
+          style={{ display: "flex", alignItems: "center" }}
+          className={"mt-10"}
+        >
+          <h1 className="text-4xl font-bold text-gray-800">
+            Challenge Someone to a{" "}
+          </h1>
+          <h1 className="text-4xl font-bold text-blue-400 ml-2">TwitterRace</h1>
+          <img
+            src={icon}
+            style={{
+              width: "6rem",
+              height: "6rem",
+              // marginTop: "10px",
+              marginLeft: "4px",
+            }}
+          />
+        </div>
         <p className="text-gray-600 mt-3 font-semibold">
-          Built by <span className="text-blue-400"><a href="https://twitter.com/IsaiahBallah">@IsaiahBallah</a></span>
+          Built by{" "}
+          <span className="text-blue-400">
+            <a href="https://twitter.com/IsaiahBallah">@IsaiahBallah</a>
+          </span>
           {" & "}
-          <span className="text-blue-400"><a href="https://twitter.com/JakeBildy">@JakeBildy</a></span>. Inspired by{" "}
-          <span className="text-blue-400"><a href="https://twitter.com/JakeDuth">@JakeDuth</a></span>
+          <span className="text-blue-400">
+            <a href="https://twitter.com/JakeBildy">@JakeBildy</a>
+          </span>
+          . Inspired by{" "}
+          <span className="text-blue-400">
+            <a href="https://twitter.com/JakeDuth">@JakeDuth</a>
+          </span>
         </p>
 
         {/* Inputs */}
@@ -57,7 +80,15 @@ export default function NewPage() {
             value={goal}
             onChange={(e: any) => setGoal(e.target.value)}
           />
-          <Button color="blue" className="mt-5" disabled={!isComplete} href={`/${person1.replaceAll("@", "")}-vs-${person2.replaceAll("@", "")}-to-${goal}`}>
+          <Button
+            color="blue"
+            className="mt-5"
+            disabled={!isComplete}
+            href={`/${person1.replaceAll("@", "")}-vs-${person2.replaceAll(
+              "@",
+              ""
+            )}-to-${goal}`}
+          >
             Start TwitterRace
           </Button>
           {/* {!isComplete && <p>Must complete form to create a TwitterRace</p>} */}
