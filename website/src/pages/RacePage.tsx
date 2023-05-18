@@ -3,7 +3,6 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { useParams } from "react-router-dom";
 import { Button } from "../components/Button";
-import isaiah from "../images/isaiah.jpeg";
 import api from "../services/api.service";
 
 function randomMessage(options: string[]) {
