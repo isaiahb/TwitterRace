@@ -12,7 +12,7 @@ function randomMessage(options: string[]) {
 
 export default function RacePage() {
   const { race } = useParams();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [, setValid] = useState(true);
   const [, setErrorMessage] = useState("");
   // const [loading, setLoading] = useState(true);
