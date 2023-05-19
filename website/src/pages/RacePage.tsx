@@ -193,13 +193,13 @@ export default function RacePage() {
             totalGoal={goal}
             currentValue={person1Followers}
             name={person1}
-            profilePic={person1Pic}
+            profilePic={person1Pic.replaceAll("normal", "400x400")}
           />
           <ProgressBar
             totalGoal={goal}
             currentValue={person2Followers}
             name={person2}
-            profilePic={person2Pic}
+            profilePic={person2Pic.replaceAll("normal", "400x400")}
           />
         </div>
 
