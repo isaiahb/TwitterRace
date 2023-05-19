@@ -22,17 +22,18 @@ export default function NewPage() {
   return (
     <div className="flex flex-col h-screen bg-slate-100">
       <Header />
-      <div className="flex flex-col items-center flex-1">
+      <div className="flex flex-col items-center flex-1 px-5">
         <div
-          style={{ display: "flex", alignItems: "center" }}
-          className={"mt-10"}
+          // style={{ display: "flex", alignItems: "center" }}
+          className={"mt-10 flex justify-center items-center"}
         >
-          <h1 className="text-4xl font-bold text-gray-800">
+          <h1 className=" font-bold text-gray-800 text-center text-3xl md:text-4xl">
             Challenge Someone to a{" "}
           </h1>
-          <h1 className="text-4xl font-bold text-blue-400 ml-2">TwitterRace</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-400 ml-2 hidden md:block text-center">TwitterRace</h1>
           <img
             src={icon}
+            className="hidden md:block"
             style={{
               width: "6rem",
               height: "6rem",
@@ -41,7 +42,9 @@ export default function NewPage() {
             }}
           />
         </div>
-        <p className="text-gray-600 mt-3 font-semibold">
+        <h1 className="text-4xl font-bold text-blue-400 ml-2 block md:hidden">TwitterRace</h1>
+
+        <p className="text-gray-600 mt-5 md:mt-3 font-semibold text-center">
           Built by{" "}
           <span className="text-blue-400">
             <a href="https://twitter.com/IsaiahBallah">@IsaiahBallah</a>
@@ -57,7 +60,7 @@ export default function NewPage() {
         </p>
 
         {/* Inputs */}
-        <div className=" w-72 flex flex-col justify-center my-5">
+        <div className=" w-full md:w-72 flex flex-col justify-center my-5">
           <TextField
             label="Person #1"
             className=" w-full"
