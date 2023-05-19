@@ -35,8 +35,8 @@ export default function NewPage() {
             src={icon}
             className="hidden md:block"
             style={{
-              width: "6rem",
-              height: "6rem",
+              width: "3rem",
+              height: "3rem",
               // marginTop: "10px",
               marginLeft: "4px",
             }}
