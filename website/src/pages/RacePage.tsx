@@ -133,8 +133,8 @@ export default function RacePage() {
           <img
             src={icon}
             style={{
-              width: "4rem",
-              height: "4rem",
+              width: "2rem",
+              height: "2rem",
               // marginTop: "10px",
               marginLeft: "4px",
             }}

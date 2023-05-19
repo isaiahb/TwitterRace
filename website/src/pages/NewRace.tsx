@@ -34,8 +34,8 @@ export default function NewPage() {
           <img
             src={icon}
             style={{
-              width: "6rem",
-              height: "6rem",
+              width: "3rem",
+              height: "3rem",
               // marginTop: "10px",
               marginLeft: "4px",
             }}
