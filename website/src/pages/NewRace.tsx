@@ -43,7 +43,16 @@ export default function NewPage() {
           />
         </div>
         <h1 className="text-4xl font-bold text-blue-400 ml-2 block md:hidden">TwitterRace</h1>
-
+        <img
+            src={icon}
+            className="block md:hidden"
+            style={{
+              width: "3rem",
+              height: "3rem",
+              // marginTop: "10px",
+              marginLeft: "4px",
+            }}
+          />
         <p className="text-gray-600 mt-5 md:mt-3 font-semibold text-center">
           Built by{" "}
           <span className="text-blue-400">
